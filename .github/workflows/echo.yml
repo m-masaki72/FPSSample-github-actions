@@ -6,7 +6,7 @@ on:
       branch:
         description: "Branch to checkout"
         required: true
-        default: "main"
+        default: "master"
 
 jobs:
   echo_job:
