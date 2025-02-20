@@ -22,11 +22,11 @@ jobs:
           echo ""
           git branch -a
 
-      - name: Cache Library
-        uses: actions/cache@v3
+      - name: Cache Unity Library
+        uses: actions/cache@v2
         with:
           path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-${{ github.sha }}
           restore-keys: |
             Library-
 
