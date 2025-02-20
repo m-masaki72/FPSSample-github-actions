@@ -1,0 +1,23 @@
+name: Echo Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to checkout"
+        required: true
+        default: "main"
+
+jobs:
+  echo_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      - name: Print message
+        run:
+          echo "Hello, GitHub Actions! Checked out branch: ${{ github.event.inputs.branch }}"
